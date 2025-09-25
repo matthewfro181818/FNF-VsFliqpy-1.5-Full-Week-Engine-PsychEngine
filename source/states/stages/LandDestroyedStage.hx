@@ -10,7 +10,6 @@ class LandDestroyedStage extends BaseStage {
 	// you might have to rename some variables if they're missing, for example: camZooming -> game.camZooming
 	override function create() {
 		defaultCamZoom = 0.9;
-		curStage = 'land-destroyed';
 
 		var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('land-destroyed/stageback', 'week1'));
 		bg.antialiasing = true;
