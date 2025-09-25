@@ -837,33 +837,6 @@ class PlayState extends MusicBeatState {
 		}
 		char.x += char.positionArray[0];
 		char.y += char.positionArray[1];
-
-		var camPos:FlxPoint = new FlxPoint(dad.getGraphicMidpoint().x, dad.getGraphicMidpoint().y);
-
-		switch (SONG.player2) {
-			case 'gf':
-				dad.setPosition(gf.x, gf.y);
-				gf.visible = false;
-				if (isStoryMode) {
-					camPos.x += 600;
-					tweenCamIn();
-				}
-
-			case "flippy":
-				dad.y += 300;
-				camPos.y += 50;
-			case "flippy-crazy":
-				dad.y += 320;
-				dad.x += 20;
-				camPos.y += 50;
-			case 'pico':
-				camPos.x += 600;
-				dad.y += 300;
-			case 'senpai':
-				dad.x += 150;
-				dad.y += 360;
-				camPos.set(dad.getGraphicMidpoint().x + 300, dad.getGraphicMidpoint().y);
-		}
 	}
 
 	public var videoCutscene:VideoSprite = null;
@@ -984,13 +957,19 @@ class PlayState extends MusicBeatState {
 
 	function cacheCountdown() {
 		var introAssets:Map<String, Array<String>> = new Map<String, Array<String>>();
-		introAssets.set('default', [
-			'style_UI/' + SONG.ui_Style + '/' + 'ready',
-			'style_UI/' + SONG.ui_Style + '/' + "set",
-			'style_UI/' + SONG.ui_Style + '/' + "go"
-		]);
-		introAssets.set('school', ['weeb/pixelUI/ready-pixel', 'weeb/pixelUI/set-pixel', 'weeb/pixelUI/date-pixel']);
-		introAssets.set('schoolEvil', ['weeb/pixelUI/ready-pixel', 'weeb/pixelUI/set-pixel', 'weeb/pixelUI/date-pixel']);
+		var introImagesArray:Array<String> = switch (stageUI) {
+			case "pixel": ['pixelUI/ready-pixel', 'pixelUI/set-pixel', 'pixelUI/date-pixel'];
+			case "normal": ["ready", "set", "go"];
+			default: [
+					'${uiPrefix}UI/ready${uiPostfix}',
+					'${uiPrefix}UI/set${uiPostfix}',
+					'${uiPrefix}UI/go${uiPostfix}'
+				];
+		}
+		introAssets.set(stageUI, introImagesArray);
+		var introAlts:Array<String> = introAssets.get(stageUI);
+		for (asset in introAlts)
+			Paths.image(asset);
 
 		Paths.sound('intro3' + introSoundsSuffix);
 		Paths.sound('intro2' + introSoundsSuffix);
@@ -1044,16 +1023,18 @@ class PlayState extends MusicBeatState {
 				characterBopper(tmr.loopsLeft);
 
 				var introAssets:Map<String, Array<String>> = new Map<String, Array<String>>();
-				introAssets.set('default', [
-					'style_UI/' + SONG.ui_Style + '/' + 'ready',
-					'style_UI/' + SONG.ui_Style + '/' + "set",
-					'style_UI/' + SONG.ui_Style + '/' + "go"
-				]);
-				introAssets.set('school', ['weeb/pixelUI/ready-pixel', 'weeb/pixelUI/set-pixel', 'weeb/pixelUI/date-pixel']);
-				introAssets.set('schoolEvil', ['weeb/pixelUI/ready-pixel', 'weeb/pixelUI/set-pixel', 'weeb/pixelUI/date-pixel']);
+				var introImagesArray:Array<String> = switch (stageUI) {
+					case "pixel": ['pixelUI/ready-pixel', 'pixelUI/set-pixel', 'pixelUI/date-pixel'];
+					case "normal": ["ready", "set", "go"];
+					default: [
+							'${uiPrefix}UI/ready${uiPostfix}',
+							'${uiPrefix}UI/set${uiPostfix}',
+							'${uiPrefix}UI/go${uiPostfix}'
+						];
+				}
+				introAssets.set(stageUI, introImagesArray);
 
-				var introAlts:Array<String> = introAssets.get('default');
-				var altSuffix:String = "";
+				var introAlts:Array<String> = introAssets.get(stageUI);
 				var antialias:Bool = (ClientPrefs.data.antialiasing && !isPixelStage);
 				var tick:Countdown = THREE;
 
