@@ -23,7 +23,8 @@ class LandCuteStage extends BaseStage {
 
 		var fgSnow:FlxSprite = new FlxSprite(-600, 700).loadGraphic(Paths.image('land-cute/fgSnow', 'week1'));
 		fgSnow.active = false;
-		fgSnow.antialiasi
+		fgSnow.antialiasing = true;
+		add(fgSnow);
 	}
 
 	var doof:DialogueBox = null;
