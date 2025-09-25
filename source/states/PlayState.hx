@@ -828,6 +828,41 @@ class PlayState extends MusicBeatState
 		}
 		char.x += char.positionArray[0];
 		char.y += char.positionArray[1];
+
+		gf = new Character(400, 130, curGf, SONG.stage);
+		gf.scrollFactor.set(0.95, 0.95);
+
+		dad = new Character(100, 100, SONG.player2, SONG.stage);
+
+		var camPos:FlxPoint = new FlxPoint(dad.getGraphicMidpoint().x, dad.getGraphicMidpoint().y);
+
+		switch (SONG.player2)
+		{
+			case 'gf':
+				dad.setPosition(gf.x, gf.y);
+				gf.visible = false;
+				if (isStoryMode)
+				{
+					camPos.x += 600;
+					tweenCamIn();
+				}
+
+			case "flippy":
+				dad.y += 300;
+				camPos.y += 50;
+			case "flippy-crazy":
+				dad.y += 320;
+				dad.x += 20;
+				camPos.y += 50;
+			case 'pico':
+				camPos.x += 600;
+				dad.y += 300;
+			case 'senpai':
+				dad.x += 150;
+				dad.y += 360;
+				camPos.set(dad.getGraphicMidpoint().x + 300, dad.getGraphicMidpoint().y);
+		}
+
 	}
 
 	public var videoCutscene:VideoSprite = null;
