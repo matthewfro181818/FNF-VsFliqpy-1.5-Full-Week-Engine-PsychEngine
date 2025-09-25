@@ -1,0 +1,12 @@
+{
+	
+	"image": "Menu_Fliqpy",
+	"position": [
+		15,
+		-40
+	],
+	"scale": 1,
+	"idle_anim": "BF idle dance white",
+	"confirm_anim": "BF HEY!!",
+	"antialiasing": true
+}
