@@ -11,8 +11,7 @@ class LandCuteStage extends BaseStage {
 	// you might have to rename some variables if they're missing, for example: camZooming -> game.camZooming
 	override function create() {
 		defaultCamZoom = 0.9;
-		curStage = 'land-cute';
-
+		
 		var bg:FlxSprite = new FlxSprite(-1000, -500).loadGraphic(Paths.image('land-cute/bgWalls', 'week1'));
 		bg.antialiasing = true;
 		bg.scrollFactor.set(0.2, 0.2);
