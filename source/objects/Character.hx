@@ -97,14 +97,13 @@ class Character extends FlxSprite {
 				// GIRLFRIEND CODE
 				switch (curStage) {
 					default:
-						tex = Paths.getSparrowAtlas('characters/GF_assets');
+						frames = Paths.getSparrowAtlas('characters/GF_assets');
 					case 'land-destroyed':
-						tex = Paths.getSparrowAtlas('characters/GF_Hurt_assets');
+						frames = Paths.getSparrowAtlas('characters/GF_Hurt_assets');
 					case 'land-cute', 'land-deadbodys':
-						tex = Paths.getSparrowAtlas('characters/GF_statue_assets');
+						frames = Paths.getSparrowAtlas('characters/GF_statue_assets');
 				}
 
-				frames = tex;
 				animation.addByPrefix('cheer', 'GF Cheer', 24, false);
 				animation.addByPrefix('singLEFT', 'GF left note', 24, false);
 				animation.addByPrefix('singRIGHT', 'GF Right Note', 24, false);
@@ -136,14 +135,13 @@ class Character extends FlxSprite {
 				var tex;
 				switch (curStage) {
 					default:
-						tex = Paths.getSparrowAtlas('characters/BOYFRIEND', 'shared');
+						frames = Paths.getSparrowAtlas('characters/BOYFRIEND', 'shared');
 					case 'land-deadbodys', 'land-destroyed':
-						tex = Paths.getSparrowAtlas('characters/BOYFRIEND_SCARED', 'shared');
+						frames = Paths.getSparrowAtlas('characters/BOYFRIEND_SCARED', 'shared');
 					case 'land-lol':
-						tex = Paths.getSparrowAtlas('characters/BOYFRIEND_HAPPY', 'shared');
+						frames = Paths.getSparrowAtlas('characters/BOYFRIEND_HAPPY', 'shared');
 				}
 
-				frames = tex;
 
 				trace(tex.frames.length);
 
@@ -186,13 +184,12 @@ class Character extends FlxSprite {
 			case 'flippy':
 				switch (curStage) {
 					default:
-						tex = Paths.getSparrowAtlas('characters/Flippy', 'shared');
+						frames = Paths.getSparrowAtlas('characters/Flippy', 'shared');
 					case 'land-destroyed':
-						tex = Paths.getSparrowAtlas('characters/Psycho-Fliqpy', 'shared');
+						frames = Paths.getSparrowAtlas('characters/Psycho-Fliqpy', 'shared');
 					case 'land-cute':
-						tex = Paths.getSparrowAtlas('characters/Fliqpy', 'shared');
+						frames = Paths.getSparrowAtlas('characters/Fliqpy', 'shared');
 				}
-				frames = tex;
 				animation.addByPrefix('idle', 'Pico Idle Dance', 24);
 				animation.addByPrefix('singUP', 'pico Up note', 24);
 				animation.addByPrefix('singRIGHT', 'Pico NOTE LEFT', 24);
@@ -233,9 +230,8 @@ class Character extends FlxSprite {
 				}
 
 			case 'flippy-crazy':
-				tex = Paths.getSparrowAtlas('characters/Fliqpy-Crazy', 'shared');
+				frames = Paths.getSparrowAtlas('characters/Fliqpy-Crazy', 'shared');
 
-				frames = tex;
 				animation.addByPrefix('idle', 'FliqpyBLOOD Idle', 24);
 				animation.addByPrefix('singUP', 'FliqpyBLOOD Up note', 24);
 				animation.addByPrefix('singRIGHT', 'FliqpyBLOOD NOTE LEFT', 24);
