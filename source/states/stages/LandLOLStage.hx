@@ -10,7 +10,6 @@ class LandLOLStage extends BaseStage {
 	// you might have to rename some variables if they're missing, for example: camZooming -> game.camZooming
 	override function create() {
 		defaultCamZoom = 0.9;
-		curStage = 'land-lol';
 
 		var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('land-lol/stageback', 'week1'));
 		bg.antialiasing = true;
