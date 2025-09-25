@@ -1037,13 +1037,20 @@ class PlayState extends MusicBeatState
 
 				var introAssets:Map<String, Array<String>> = new Map<String, Array<String>>();
 				var introImagesArray:Array<String> = switch(stageUI) {
-					case "pixel": ['pixelUI/ready-pixel', 'pixelUI/set-pixel', 'pixelUI/date-pixel'];
-					case "normal": ["ready", "set" ,"go"];
-					default: ['${uiPrefix}UI/ready${uiPostfix}', '${uiPrefix}UI/set${uiPostfix}', '${uiPrefix}UI/go${uiPostfix}'];
-				}
-				introAssets.set(stageUI, introImagesArray);
+			introAssets.set('default', ['style_UI/'+SONG.ui_Style+'/'+'ready', 'style_UI/'+SONG.ui_Style+'/'+"set", 'style_UI/'+SONG.ui_Style+'/'+"go"]);
+			introAssets.set('school', [
+				'weeb/pixelUI/ready-pixel',
+				'weeb/pixelUI/set-pixel',
+				'weeb/pixelUI/date-pixel'
+			]);
+			introAssets.set('schoolEvil', [
+				'weeb/pixelUI/ready-pixel',
+				'weeb/pixelUI/set-pixel',
+				'weeb/pixelUI/date-pixel'
+			]);
 
-				var introAlts:Array<String> = introAssets.get(stageUI);
+                var introAlts:Array<String> = introAssets.get('default');
+				var altSuffix:String = "";
 				var antialias:Bool = (ClientPrefs.data.antialiasing && !isPixelStage);
 				var tick:Countdown = THREE;
 
