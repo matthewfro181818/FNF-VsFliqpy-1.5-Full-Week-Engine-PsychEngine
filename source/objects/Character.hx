@@ -132,7 +132,6 @@ class Character extends FlxSprite {
 				addOffset('scared', -2, -17);
 
 			case 'bf':
-				var tex;
 				switch (curStage) {
 					default:
 						frames = Paths.getSparrowAtlas('characters/BOYFRIEND', 'shared');
@@ -182,10 +181,13 @@ class Character extends FlxSprite {
 				switch (curStage) {
 					default:
 						frames = Paths.getSparrowAtlas('characters/Flippy', 'shared');
+                                                healthIcon = 'flippy';
 					case 'land-destroyed':
 						frames = Paths.getSparrowAtlas('characters/Psycho-Fliqpy', 'shared');
+                                                healthIcon = 'fliqpy-psycho';
 					case 'land-cute':
 						frames = Paths.getSparrowAtlas('characters/Fliqpy', 'shared');
+                                                healthIcon = 'fliqpy';
 				}
 				animation.addByPrefix('idle', 'Pico Idle Dance', 24);
 				animation.addByPrefix('singUP', 'pico Up note', 24);
@@ -237,7 +239,10 @@ class Character extends FlxSprite {
 
 				playAnim('idle');
 
-				flipX = true;
+				flipX = true;        
+                      
+                                healthIcon = 'fliqpy-crazy';
+
 
 				addOffset('idle');
 				addOffset("singUP", 7, 48);
