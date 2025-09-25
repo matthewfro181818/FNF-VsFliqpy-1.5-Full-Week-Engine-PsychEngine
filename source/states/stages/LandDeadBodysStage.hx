@@ -3,29 +3,27 @@ package states.stages;
 import states.stages.objects.*;
 import substates.GameOverSubstate;
 import cutscenes.DialogueBox;
-
 import openfl.utils.Assets as OpenFlAssets;
 
 class LandDeadBodysStage extends BaseStage {
 	// If you're moving your stage from PlayState to a stage file,
 	// you might have to rename some variables if they're missing, for example: camZooming -> game.camZooming
 	override function create() {
+		defaultCamZoom = 0.9;
+		curStage = 'land-deadbodys';
 
-						defaultCamZoom = 0.9;
-						curStage = 'land-deadbodys';
+		var bg:FlxSprite = new FlxSprite(-1000, -500).loadGraphic(Paths.image('land-deadbodys/bgWalls', 'week1'));
+		bg.antialiasing = true;
+		bg.scrollFactor.set(0.2, 0.2);
+		bg.active = false;
+		bg.setGraphicSize(Std.int(bg.width * 0.8));
+		bg.updateHitbox();
+		add(bg);
 
-						var bg:FlxSprite = new FlxSprite(-1000, -500).loadGraphic(Paths.image('land-deadbodys/bgWalls','week1'));
-						bg.antialiasing = true;
-						bg.scrollFactor.set(0.2, 0.2);
-						bg.active = false;
-						bg.setGraphicSize(Std.int(bg.width * 0.8));
-						bg.updateHitbox();
-						add(bg);
-
-						var fgSnow:FlxSprite = new FlxSprite(-600, 700).loadGraphic(Paths.image('land-deadbodys/fgSnow','week1'));
-						fgSnow.active = false;
-						fgSnow.antialiasing = true;
-						add(fgSnow);
+		var fgSnow:FlxSprite = new FlxSprite(-600, 700).loadGraphic(Paths.image('land-deadbodys/fgSnow', 'week1'));
+		fgSnow.active = false;
+		fgSnow.antialiasing = true;
+		add(fgSnow);
 	}
 
 	var doof:DialogueBox = null;
