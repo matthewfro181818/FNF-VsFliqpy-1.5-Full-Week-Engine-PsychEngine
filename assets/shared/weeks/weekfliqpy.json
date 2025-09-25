@@ -1,0 +1,25 @@
+{
+	"songs": [
+		["Flippy-Roll", "fliqpy", [89, 186, 0]],
+		["Happy Tree-Land", "fliqpy", [89, 186, 0]],
+		["Massacre", "fliqpy-crazy", [255, 255, 0]],
+		["Flippin Out", "phsycho-fliqpy", [255, 255, 0]],
+		["UnFlipped Out", "flippy-normal", [89, 186, 0]]
+	],
+
+	"weekCharacters": [
+		"",
+		"fliqpy",
+		""
+	],
+	"weekBackground": "",
+
+	"storyName": "PTSD",
+	"weekBefore": "",
+	"weekName": "PTSD",
+	"startUnlocked": true,
+
+	"hideStoryMode": false,
+	"hideFreeplay": false,
+	"difficulties": "Easy, Normal"
+}

@@ -1,0 +1,21 @@
+{
+	"songs": [
+		["lol", "fliqpy", [89, 186, 0]]
+	],
+
+	"weekCharacters": [
+		"",
+		"fliqpy",
+		""
+	],
+	"weekBackground": "",
+
+	"storyName": "PTSD",
+	"weekBefore": "",
+	"weekName": "PTSD",
+	"startUnlocked": true,
+
+	"hideStoryMode": true,
+	"hideFreeplay": false,
+	"difficulties": "Easy, Normal"
+}
