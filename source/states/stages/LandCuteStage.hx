@@ -6,7 +6,6 @@ import cutscenes.DialogueBox;
 
 import openfl.utils.Assets as OpenFlAssets;
 
-
 class LandCuteStage extends BaseStage {
 	// If you're moving your stage from PlayState to a stage file,
 	// you might have to rename some variables if they're missing, for example: camZooming -> game.camZooming
