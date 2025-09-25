@@ -15,7 +15,7 @@
 	"weekName": "PTSD",
 	"startUnlocked": true,
 
-	"hideStoryMode": false,
+	"hideStoryMode": true,
 	"hideFreeplay": false,
 	"difficulties": "Easy, Normal"
 }
