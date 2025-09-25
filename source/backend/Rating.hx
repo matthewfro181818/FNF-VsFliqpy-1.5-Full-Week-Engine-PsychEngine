@@ -30,27 +30,19 @@ class Rating
 	{
 		var ratingsData:Array<Rating> = [new Rating('sick')]; //highest rating goes first
 
-		var rating:Rating = new Rating('sick');
-		rating.loadGraphic(Paths.image('style_UI/' + SONG.ui_Style + '/sick'));
-		rating.noteSplash = false;
-		ratingsData.push(rating);
-		
 		var rating:Rating = new Rating('good');
-		rating.loadGraphic(Paths.image('style_UI/' + SONG.ui_Style + '/good'));
 		rating.ratingMod = 0.67;
 		rating.score = 200;
 		rating.noteSplash = false;
 		ratingsData.push(rating);
-		
+
 		var rating:Rating = new Rating('bad');
-		rating.loadGraphic(Paths.image('style_UI/' + SONG.ui_Style + '/bad'));
 		rating.ratingMod = 0.34;
 		rating.score = 100;
 		rating.noteSplash = false;
 		ratingsData.push(rating);
 
 		var rating:Rating = new Rating('shit');
-		rating.loadGraphic(Paths.image('style_UI/' + SONG.ui_Style + '/shit'));
 		rating.ratingMod = 0;
 		rating.score = 50;
 		rating.noteSplash = false;
