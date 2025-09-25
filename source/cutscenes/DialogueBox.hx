@@ -12,6 +12,9 @@ class DialogueBox extends FlxSpriteGroup {
 
 	// SECOND DIALOGUE FOR THE PIXEL SHIT INSTEAD???
 	var swagDialogue:FlxTypeText;
+	var dropText:FlxText;
+	var dadSoundText:String;
+	var bfSoundText:String;
 
 	public var finishThing:Void->Void;
 	public var nextDialogueThing:Void->Void = null;
@@ -181,6 +184,17 @@ class DialogueBox extends FlxSpriteGroup {
 		skipText.setFormat(null, 16, FlxColor.WHITE, RIGHT, OUTLINE_FAST, FlxColor.BLACK);
 		skipText.borderSize = 2;
 		add(skipText);
+							
+		dropText = new FlxText(242, 502, Std.int(FlxG.width * 0.6), "", 32);
+		dropText.font = 'VCR OSD Mono';
+		dropText.color = 0xFFD89494;
+		add(dropText);
+
+		swagDialogue = new FlxTypeText(240, 500, Std.int(FlxG.width * 0.6), "", 32);
+		swagDialogue.font = 'VCR OSD Mono';
+		swagDialogue.color = 0xFF3F2021;
+		swagDialogue.sounds = [FlxG.sound.load(Paths.sound('dialogue_sound'+dadSoundText), 0.6)];
+		add(swagDialogue);
 	}
 
 	var dialogueOpened:Bool = false;
@@ -278,21 +292,31 @@ class DialogueBox extends FlxSpriteGroup {
 
 		handSelect.visible = false;
 		dialogueEnded = false;
-		switch (curCharacter) {
+// swagDialogue.text = ;
+		switch (curCharacter)
+		{
 			case 'dad':
+				swagDialogue.sounds = [FlxG.sound.load(Paths.sound('dialogue_sound/'+dadSoundText), 0.6)];
 				portraitRight.visible = false;
-				if (!portraitLeft.visible) {
-					if (songName == 'senpai')
-						portraitLeft.visible = true;
+				if (!portraitLeft.visible)
+				{
+					box.animation.play('normalOpen');
+					box.flipX = true;
+					portraitLeft.visible = true;
 					portraitLeft.animation.play('enter');
 				}
 			case 'bf':
-				portraitLeft.visible = false;
-				if (!portraitRight.visible) {
+				swagDialogue.sounds = [FlxG.sound.load(Paths.sound('dialogue_sound/'+bfSoundText), 0.6)];
+				portraitLeft.visible = false;				
+				if (!portraitRight.visible)
+				{
+					box.animation.play('normalOpen');
+					box.flipX = false;
 					portraitRight.visible = true;
 					portraitRight.animation.play('enter');
 				}
 		}
+
 		if (nextDialogueThing != null)
 			nextDialogueThing();
 	}
